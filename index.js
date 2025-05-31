@@ -11,7 +11,7 @@ const pool = new Pool({
   user: "postgres",       //  PGUSER
   host: "postgres.railway.internal",       //  PGHOST
   database:"railway", //  PGDATABASE
-  password: "admin@1234", //  PGPASSWORD
+  password: "cKZysXAxRiZkCrnhEomJnVtvsOTEiLGj", //  PGPASSWORD
   port: 5432,                 // usually 5432 or your PGPORT
   ssl: {
     rejectUnauthorized: false, // important for Railway
@@ -22,7 +22,7 @@ app.post("/submit", async (req, res) => {
   const { name, email, message } = req.body;
   try {
     await pool.query(
-      "INSERT INTO users (name, email, message) VALUES ($1, $2, $3)",
+      "INSERT INTO contact_data (name, email, message) VALUES ($1, $2, $3)",
       [name, email, message]
     );
     res.send({ message: "Data Saved Successfully" });
